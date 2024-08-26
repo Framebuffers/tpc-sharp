@@ -150,11 +150,7 @@ func _update_camera_horizontal_rotation() :
 	var tween = create_tween()
 	tween.tween_property(_camera_rotation_pivot, "global_rotation_degrees:y", camera_horizontal_rotation_deg * -1, 0.1).as_relative()
 	camera_horizontal_rotation_deg = 0.0 # reset the value
-	var vect_to_offset_pivot : Vector2 = (
-		Vector2(_camera_offset_pivot.global_position.x, _camera_offset_pivot.global_position.z)
-		-
-		Vector2(_camera.global_position.x, _camera.global_position.z)
-		).normalized()
+	var vect_to_offset_pivot : Vector2 = (Vector2(_camera_offset_pivot.global_position.x, _camera_offset_pivot.global_position.z) -	Vector2(_camera.global_position.x, _camera.global_position.z)).normalized()
 	_camera.global_rotation.y = -Vector2(0., -1.).angle_to(vect_to_offset_pivot.normalized())
 
 

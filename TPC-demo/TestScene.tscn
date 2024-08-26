@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://8gwfe74ymflf"]
 
-[ext_resource type="Script" path="res://TPC-demo/PlayerBall.gd" id="1_o5mqj"]
+[ext_resource type="Script" path="res://TPC-demo/PlayerBall.cs" id="1_iujn4"]
 [ext_resource type="Texture2D" uid="uid://c8vwnx65onnvv" path="res://TPC-demo/kenney_prototype_textures/green/texture_09.png" id="2_rcnm2"]
 [ext_resource type="PackedScene" uid="uid://wmf2eu0uuhrg" path="res://addons/third-person-camera/third_person_camera/ThirdPersonCamera.tscn" id="3_ky3rl"]
 [ext_resource type="Texture2D" uid="uid://byc1l3f88knyq" path="res://TPC-demo/kenney_prototype_textures/dark/texture_12.png" id="4_j6bbc"]
@@ -85,7 +85,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51114, 0)
-script = ExtResource("1_o5mqj")
+script = ExtResource("1_iujn4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 material_override = SubResource("StandardMaterial3D_wmirw")
@@ -95,8 +95,7 @@ mesh = SubResource("SphereMesh_fny35")
 shape = SubResource("SphereShape3D_ji1ja")
 
 [node name="ThirdPersonCamera" parent="RigidBody3D" instance=ExtResource("3_ky3rl")]
-current = true
-spring_arm_collision_mask = 277
+script = null
 
 [node name="SpectatorCamera" type="Camera3D" parent="."]
 transform = Transform3D(-4.23762e-08, -0.245274, 0.969454, -1.07212e-08, 0.969454, 0.245274, -1, 7.01661e-14, -4.37114e-08, 47.6874, 17.5263, 0)
