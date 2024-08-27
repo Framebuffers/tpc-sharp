@@ -1,5 +1,6 @@
 using Godot;
 using Microsoft.VisualBasic;
+using System.Linq;
 
 public partial class PlayerBall : RigidBody3D
 {
@@ -10,7 +11,12 @@ public partial class PlayerBall : RigidBody3D
 
     public override void _Ready()
     {
-        Camera = GetNode<TPCSharpCamera>("RigidBody3D/ThirdPersonCamera");
+        CallDeferred(MethodName.LoadCamera);
+    }
+
+    private void LoadCamera()
+    {
+        Camera = GetNode<TPCSharpCamera>("ThirdPersonCamera");
     }
 
     public override void _PhysicsProcess(double delta)
